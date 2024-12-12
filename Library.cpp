@@ -53,23 +53,37 @@ void Library::showBorrowedBooks() const {
 }
 
 void Library::saveToFile() const {
-    ofstream file("library_data.txt");
+    ofstream bookFile("library_data.txt");
     for (const auto& book : books) {
-        file << book.getId() << " " << book.getTitle() << " " << book.getAuthor() << " " << book.isAvailable() << endl;
+        bookFile << book.getId() << " " << book.getTitle() << " " << book.getAuthor() << " " << book.isAvailable() << endl;
     }
-    file.close();
+    bookFile.close();
+
+    ofstream userFile("users_data.txt");
+    for (const auto& user : users) {
+        userFile << user.getId() << " " << user.getName() << endl;
+    }
+    userFile.close();
 }
 
 void Library::loadFromFile() {
-    ifstream file("library_data.txt");
+    ifstream bookFile("library_data.txt");
     int id;
     string title, author;
     bool available;
-    while (file >> id >> ws) {
-        getline(file, title, ',');
-        getline(file, author, ',');
-        file >> available;
+    while (bookFile >> id >> ws) {
+        getline(bookFile, title, ',');
+        getline(bookFile, author, ',');
+        bookFile >> available;
         books.push_back(Book(id, title, author, available));
     }
-    file.close();
+    bookFile.close();
+
+    ifstream userFile("users_data.txt");
+    while (userFile >> id) {
+        string name;
+        getline(userFile, name);
+        users.push_back(User(id, name));
+    }
+    userFile.close();
 }

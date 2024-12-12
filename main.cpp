@@ -13,6 +13,8 @@ int main() {
         int option;
         cin >> option;
         ui.executeOption(option, library);
+
+        library.saveToFile();
     }
 
     return 0;

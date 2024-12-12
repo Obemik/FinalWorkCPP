@@ -22,7 +22,10 @@ void UI::executeOption(int option, Library& library) {
     case 5: showBooks(library); break;
     case 6: showUsers(library); break;
     case 7: showBorrowedBooks(library); break;
-    case 8: exit(0);
+    case 8:
+        library.saveToFile();
+        cout << "Data saved. Exiting..." << endl;
+        exit(0);
     default: cout << "Invalid option!" << endl;
     }
 }
