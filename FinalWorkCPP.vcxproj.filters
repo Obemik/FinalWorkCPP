@@ -4,10 +4,28 @@
     <Filter Include=",main">
       <UniqueIdentifier>{a2b6bd9d-1b99-431d-98fb-9a6aeba71718}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{34b1139e-3e96-4c8c-8646-00a1d15fc589}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>,main</Filter>
     </ClCompile>
+    <ClCompile Include="Library.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="User.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Library.h" />
+    <ClInclude Include="UI.h" />
+    <ClInclude Include="Book.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="Exception.h" />
+    <ClInclude Include="BookExceptions.h" />
   </ItemGroup>
 </Project>
